@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+	<head>	
+		<title>Js-trie</title>
+		<script type="text/javascript" src="jquery.js"></script>
+		<script type="text/javascript" src="dict.js"></script>
+		<script type="text/javascript" src="trie.js"></script>
+		<style type="text/css">
+			Body{
+				font-family:sans-serif;
+				font-size: 1.em;
+			}
+			#in{
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-top: -25px;
+				margin-left: -200px;
+				width: 400px;
+				height: 50px;
+				font-size: 1.4em;
+				padding: 0px 15px;
+				background: #DDD;
+				border: 0;
+			}
+			#res{
+				width:400px;
+				height:200px;
+				background:#f2f2f2;
+				left:50%;
+				top:50%;
+				margin-top:25px;
+				margin-left:-200px;
+				position:absolute;
+				padding:15px;
+				line-height: 22px;
+				overflow-y: scroll;
+			}
+		</style>
+	</head>
+	<body>
+		<input id="in"/>
+		<div id="res"></div>
+	</body>
+	<script type="text/javascript">
+		var t = trie(dict);
+		$('#in').keyup(function(){
+			$('#res').html('');
+			var val = $(this).val();
+			if(val){
+				var res = t.get(val);
+				for(var i in res){
+					$('#res').append(res[i]+'<br>');
+				}
+			}
+		});
+	</script>
+</html>
