@@ -46,7 +46,9 @@
 		var t = trie(dict);
 		$('#in').keyup(function(){
 			$('#res').html('');
+			var s = (new Date).getTime();
 			var val = $(this).val();
+			console.log((new Date).getTime()-s);
 			if(val){
 				var res = t.get(val);
 				for(var i in res){
